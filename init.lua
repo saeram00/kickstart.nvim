@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -690,6 +690,9 @@ require('lazy').setup({
             },
           },
         },
+        clangd = {},
+        jdtls = {},
+        ruff = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -762,6 +765,11 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
+        cs = { 'clang-format' },
+        java = { 'clang-format' },
+        py = { 'ruff' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
