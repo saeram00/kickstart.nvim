@@ -707,9 +707,7 @@ require('lazy').setup({
         clangd = {},
         docker_language_server = {},
         jdtls = {},
-        ruff = {
-          cmd = 'server',
-        },
+        ty = {},
       }
 
       -- Ensure the servers and tools above are installed
