@@ -706,8 +706,11 @@ require('lazy').setup({
         bashls = {},
         clangd = {},
         docker_language_server = {},
-        jdtls = {},
-        ty = {},
+        jdtls = {}, -- Java
+        ltex_plus = {}, -- Markdown
+        nginx_language_server = {},
+        oxlint = {}, -- JavaScript/TypeScript
+        ty = {}, -- Python
       }
 
       -- Ensure the servers and tools above are installed
@@ -725,7 +728,13 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        'clang-format', -- Format C/C++, C# and Java code
+        'cpplint',
+        'markdownlint',
+        'nginx-config-formatter',
+        'shellcheck', -- Lint shell scripts
         'stylua', -- Used to format Lua code
+        'ruff', -- Format Python code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -783,6 +792,8 @@ require('lazy').setup({
         cpp = { 'clang-format' },
         cs = { 'clang-format' },
         java = { 'clang-format' },
+        md = { 'markdownlint' },
+        nginx = { 'nginxfmt' },
         py = { 'ruff' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
@@ -1025,8 +1036,12 @@ require('lazy').setup({
       bash = { 'shellcheck' },
       c = { 'cppcheck', 'cpplint' },
       cpp = { 'cppcheck', 'cpplint' },
+      js = { 'oxlint' },
+      markdown = { 'markdownlint' },
       python = { 'ruff' },
-      zsh = { 'zsh' },
+      sh = { 'shellcheck' },
+      ts = { 'oxlint' },
+      zsh = { 'zsh', 'shellcheck' },
     },
   },
   require 'kickstart.plugins.autopairs',
