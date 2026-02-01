@@ -709,7 +709,7 @@ require('lazy').setup({
         jdtls = {}, -- Java
         ltex_plus = {}, -- Markdown
         nginx_language_server = {},
-        oxlint = {}, -- JavaScript/TypeScript
+        ts_ls = {}, -- JavaScript/TypeScript
         ty = {}, -- Python
       }
 
@@ -732,6 +732,7 @@ require('lazy').setup({
         'cpplint',
         'markdownlint',
         'nginx-config-formatter',
+        'oxlint', -- Lint JavaScript/TypeScript code
         'shellcheck', -- Lint shell scripts
         'stylua', -- Used to format Lua code
         'ruff', -- Format Python code
