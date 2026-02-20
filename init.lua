@@ -706,6 +706,7 @@ require('lazy').setup({
         bashls = {},
         clangd = {},
         docker_language_server = {},
+        intelephense = {}, -- PHP
         jdtls = {}, -- Java
         ltex_plus = {}, -- Markdown
         nginx_language_server = {},
