@@ -2,9 +2,32 @@ return {
 
   -- Default colorscheme.
   {
+    'srcery-colors/srcery-vim',
+    lazy = false, -- load immediately since it's your main theme
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    name = 'srcery',
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      -- Optional: some common toggles (see repo README for all)
+      vim.g.srcery_italic = 1
+      vim.g.srcery_bold = 1
+      vim.g.srcery_underline = 1
+      vim.g.srcery_undercurl = 1
+      vim.g.srcery_strikethrough = 1
+      vim.g.srcery_inverse = 0 -- invert for search/diffs etc.
+      vim.g.srcery_inverse_matches = 1 -- invert for highlight matches.
+      vim.g.srcery_inverse_match_paren = 1 -- invert for matching delimiter (), {}, [], etc.
+      vim.g.srcery_dim_comments = 0 -- or 1 if you prefer dimmer comments
+      vim.g.srcery_italic_types = 1 -- Italicize types if italic is enabled.
+
+      -- vim.cmd.colorscheme 'srcery'
+    end,
+  },
+
+  {
     'ellisonleao/gruvbox.nvim',
     lazy = false,
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+    -- priority = 1000,
     name = 'gruvbox',
     config = function()
       ---@diagnostic disable-next-line: missing-fields
@@ -37,7 +60,7 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'gruvbox'
+      -- vim.cmd.colorscheme 'gruvbox'
     end,
   },
 
@@ -173,7 +196,7 @@ return {
     event = 'VeryLazy', -- Could also be 'UIEnter'.
     config = function()
       require('huez').setup {
-        fallback = 'gruvbox', -- Default if nothing loads.
+        fallback = 'srcery', -- Default if nothing loads.
         -- exclude = {}, -- To hide builtin colors.
       }
       -- Optional: auto-apply saved theme very early (huez usually does this itself)
